@@ -40,7 +40,7 @@ namespace TechJobsTest
         }
         [TestMethod]
          public void TestJobsToString()
-           {
+        {
              Job testJob4 = new Job("Product Tester", new Employer(""), new Location("Desert"), new PositionType("Quality Control"), new CoreCompetency("Persistence"));
              Job testJob5 = new Job("", new Employer(""), new Location(""), new PositionType(""), new CoreCompetency(""));
              string results = testJob.ToString();
