@@ -38,5 +38,25 @@ namespace TechJobsTest
             Job testJob2 = new Job("Product Tester", new Employer("ACME"), new Location("Desert"), new PositionType("Quality Control"), new CoreCompetency("Persistence"));
             Assert.IsFalse(Equals(testJob1, testJob2));
         }
-    }
+        [TestMethod]
+         public void TestJobsToString()
+           {
+             Job testJob4 = new Job("Product Tester", new Employer(""), new Location("Desert"), new PositionType("Quality Control"), new CoreCompetency("Persistence"));
+             Job testJob5 = new Job("", new Employer(""), new Location(""), new PositionType(""), new CoreCompetency(""));
+             string results = testJob.ToString();
+             string[] resultsArr = results.Split("\n");
+             Assert.AreEqual(resultsArr[0], "");
+             Assert.AreEqual(resultsArr[resultsArr.Length - 1], "");
+
+             results = testJob4.ToString();
+             resultsArr = results.Split("\n");
+             Assert.AreEqual(resultsArr[2], "Name: Product Tester");
+             Assert.AreEqual(resultsArr[3], "Employer: Data not available");
+
+             results = testJob5.ToString();
+             resultsArr = results.Split("\n");
+             Assert.AreEqual(resultsArr[1], "OOPS! This job does not seem to exist.");
+
+            }
+        }
 }
